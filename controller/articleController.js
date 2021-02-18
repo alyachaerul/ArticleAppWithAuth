@@ -1,42 +1,12 @@
 const {
     Articles
 } = require('../models')
-const {
-    nanoid
-} = require('nanoid')
+const BaseController = require('./baseController')
 
-function get(query) {
-    return Articles.findAll({
-        where: query, //where menerima sebuah objek, dan query merupakan sebuah objek
-        // sort: "DESC" --> melakukan sorting dari besar ke kecil, kalo kecil ke besar ASC. kalo banyak yg diproses bikin fungsi baru
-    })
+class ArticleController extends BaseController {
+    constructor() {
+        super(Articles)
+    }
 }
 
-function add(data) {
-    return Articles.create({
-        id: nanoid(),
-        ...data
-    })
-}
-
-function edit(id, data) {
-    return Articles.update(data, {
-        where: {
-            id
-        }
-    })
-}
-
-function remove(id) {
-    return Articles.destroy({
-        where: {
-            id
-        }
-    })
-}
-module.exports = {
-    get,
-    add,
-    edit,
-    remove
-}
+module.exports = ArticleController
