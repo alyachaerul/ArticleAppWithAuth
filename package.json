@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sequelize db:create"
   },
   "author": "Alya Chaerul",
   "license": "ISC",
@@ -21,5 +22,8 @@
     "passport-jwt": "^4.0.0",
     "pg": "^8.5.1",
     "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
   }
 }
