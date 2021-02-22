@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 
 app.use(express.json())
+app.use('/', require('./route/indexRoute'))
 app.use('/', require('./route/authRoute'))
 app.use('/article', require('./route/articleRoute'))
 

@@ -1,6 +1,16 @@
 # YAML file json lebih singkat dan bisa mendeteksi tipe data 
 
-deploy: #job name
-  image: ubuntu
-  script: #sebuah array berisi perintah yang mau dimasukkin ke proses CI
-    - echo "Hello World"
+# deploy: #job name
+#   image: ubuntu
+#   script: #sebuah array berisi perintah yang mau dimasukkin ke proses CI
+#     - echo "Hello World"
+
+
+production:
+    image: ruby:latest
+    before_script:
+      - apt-get update -qy
+      - apt-get install -y ruby-dev
+      - gem install dpl
+    script:
+        - dpl --provider=heroku --app=$HEROKU_APP_PRODUCTION --api-key=$HEROKU_API_KEY
