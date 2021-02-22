@@ -1,0 +1,6 @@
+# YAML file json lebih singkat dan bisa mendeteksi tipe data 
+
+deploy: #job name
+  image: ubuntu
+  script: #sebuah array berisi perintah yang mau dimasukkin ke proses CI
+    - echo "Hello World"
